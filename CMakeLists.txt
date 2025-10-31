@@ -3,6 +3,6 @@ project(Xiaoming'sRobot)
 
 set(CXX_STANDARD 17)
 
-aux_source_directory(. src)
+aux_source_directory(./src src)
 
 add_executable(main ${src})
