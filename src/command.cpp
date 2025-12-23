@@ -1,6 +1,8 @@
 #include "command.h"
-#include<sstream>
-#include<exception>
+#include <sstream>
+#include <exception>
+
+std::map<std::string, unsigned> cmd_arg;
 
 void init_cmd_arg() {
     cmd_arg.emplace("inbox", 0);

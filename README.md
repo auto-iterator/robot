@@ -1,5 +1,7 @@
 TODO:
-- 确定程序框架
-- 完善各个头文件
-- 完成 `archive` 模块
-- 完成 `simulator` 模块
+- game.cpp
+- game.h
+- interface.cpp
+- interface.h
+
+基本内容写完后可以考虑加入多测

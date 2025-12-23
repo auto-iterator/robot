@@ -1,7 +1,9 @@
-#include"archive.h"
-#include<exception>
+#include "archive.h"
+#include "level.h"
+#include <exception>
+#include <stdexcept>
 
-void read_level(std::ifstream &fin, Level &level) {
+Level read_level(std::ifstream &fin, int id) {
     if(!fin.good())
         throw std::runtime_error("Failed to read file.");
     int n;
@@ -38,13 +40,13 @@ void read_level(std::ifstream &fin, Level &level) {
         auto it = cmd_arg.find(s);
         if(it == cmd_arg.end())
             throw std::runtime_error("Invalid command name.");
-        ava_cmd.emplace(it);
+        ava_cmd.emplace(*it);
     }
 
     getline(fin, s);
     getline(fin, s); // description
 
-    level = Level(in, target, area_num, ava_cmd, s);
+    return Level(id, in, target, area_num, ava_cmd, s);
 }
 
 void write_level(std::ofstream &fout, Level &level) {
