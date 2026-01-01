@@ -87,9 +87,8 @@ void Console::draw_line(int x, int y, int len, char ch) {
 }
 
 // 如果 val 过长 (>len) 就左对齐，否则居中
-void Console::write_number(int x, int y, int len, int val) {
+void Console::write_str(int x, int y, int len, const std::string &str) {
     erase_rect(x, y, len, 1);
-    std::string str = std::to_string(val);
     if(str.size() > len) {
         move_to(x, y);
         for(int i = 0; i < len; ++i)
@@ -98,7 +97,7 @@ void Console::write_number(int x, int y, int len, int val) {
     else {
         int res = (len - str.size()) / 2;
         move_to(x, y + res);
-        printf("%d", val);
+        std::cout << str;
     }
 }
 
@@ -125,7 +124,7 @@ void Console::test() {
     erase_point(5, 5);
     draw_line(6, 6, 10, '=');
     draw_box(10, 10, 5, 3);
-    write_number(11, 11, 5, 123);
+    write_str(11, 11, 5, "123");
     
 }
 

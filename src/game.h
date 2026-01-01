@@ -8,7 +8,7 @@ class Game {
 
     void load_levels();
     void save_levels();
-    // void reset_levels();
+    void reset_levels();
 
     void enter_level(int);
     void create_level();
@@ -16,7 +16,7 @@ class Game {
 
     public:
 
-    Game();
+    Game() = default;
     void init();
     void run();
 };

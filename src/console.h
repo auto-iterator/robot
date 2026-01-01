@@ -16,7 +16,7 @@ namespace Console {
     void clear_screen();
     void draw_box(int, int, int, int);
     void draw_line(int, int, int, char);
-    void write_number(int, int, int, int);
+    void write_str(int, int, int, const std::string&);
     void draw_fig(int, int, const std::vector<std::string>&);
 
 #ifdef DEBUG

@@ -2,7 +2,6 @@
 
 #include<string>
 #include<vector>
-#include<map>
 
 struct Command {
     std::string name;
@@ -16,8 +15,12 @@ struct Command {
         name(s), arg(a) {}
 };
 
-extern std::map<std::string, unsigned> cmd_arg;
+extern std::vector<std::pair<std::string, int>> cmd_arg;
 
 void init_cmd_arg();
 
-void read_cmd(std::istream&, std::vector<Command>&);
+void read_cmd(std::istream&, std::vector<std::string>&, bool);
+
+int read_integer(const std::string&);
+
+Command resolve_cmd(const std::string&);

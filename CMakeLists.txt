@@ -5,6 +5,6 @@ set(CXX_STANDARD 17)
 
 aux_source_directory(./src src)
 
-add_definitions(-DDEBUG)
+# add_definitions(-DDEBUG)
 
 add_executable(main ${src})

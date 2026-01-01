@@ -2,12 +2,11 @@
 
 #include<vector>
 #include<string>
-#include<map>
 
 struct Level {
     int id;
     std::vector<int> in, target;
-    std::map<std::string, int> ava_cmd;
+    std::vector<std::pair<std::string, int>> ava_cmd;
     int area_num;
     std::string description;
 
@@ -16,7 +15,7 @@ struct Level {
     Level(const Level&) = default;
     
     Level(const int ID, const std::vector<int> &IN, const std::vector<int> &TAR, const int &AREA_N,
-        std::map<std::string, int> &AVA_CMD, const std::string &DES, const int &p = 0) :
+        std::vector<std::pair<std::string, int>> &AVA_CMD, const std::string &DES, const int &p = 0) :
         id(ID), in(IN), target(TAR), ava_cmd(AVA_CMD), area_num(AREA_N), description(DES) {}
         
     Level& operator=(const Level&) = default;
