@@ -88,7 +88,7 @@ void Game::reset_levels() {
     // TODO
     in = {3, 5, -2, -8, 9, 0, -8, -10};
     tar = {-3, -5, 2, 8, -9, 0, 8, 10};
-    levels.emplace_back(4, in, tar, 2, cmd_arg, 
+    levels.emplace_back(4, in, tar, 1, cmd_arg, 
         "Output the opposite number of each number in inbox.");
 
     level_completion = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
@@ -112,6 +112,7 @@ void Game::create_level() {
                 levels.emplace_back(read_level(fin, levels.size()));
                 level_completion.emplace_back(0, 0, 0);
                 fin.close();
+                save_levels();
                 return;
             }
             catch(std::runtime_error err) {
@@ -146,6 +147,7 @@ void Game::delete_level() {
                 }
                 while(levels.size() > 4)
                     levels.pop_back(), level_completion.pop_back();
+                save_levels();
                 return;
             }
             int res = read_integer(input);
@@ -167,6 +169,8 @@ void Game::delete_level() {
                 for(auto &lvl : levels) {
                     lvl.id = i++; // 重新编号
                 }
+                save_levels();
+                return;
             }
         }
         catch(std::runtime_error err) {

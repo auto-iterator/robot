@@ -289,17 +289,17 @@ void draw_level_deletion(const std::vector<Level> &levels) {
     }
     else {
         for(int i = 4; i < levels.size() && i < 8; ++i) {
-            Console::move_to(3 + i, 10);
-            std::cout << "Level " << 5 + i;
+            Console::move_to(1 + i, 10);
+            std::cout << "Level " << i + 1;
         }
         if(levels.size() > 8) {
-            Console::move_to(11, 10);
+            Console::move_to(9, 10);
             std::cout << "(" << levels.size() - 8 << " Folded)";
         }
     }
     
     // 绘制警告信息
-    Console::draw_box(10, 10, 60, 7);
+    Console::draw_box(11, 10, 60, 7);
 
     std::vector<std::string> text = {
         "WARNING: Deletion cannot be undone!",
@@ -311,7 +311,7 @@ void draw_level_deletion(const std::vector<Level> &levels) {
         "Enter 'b' to go back"
     };
 
-    Console::draw_fig(11, 12, text);
+    Console::draw_fig(12, 12, text);
     
     // 绘制底部边框
     Console::draw_line(21, 0, CONSOLE_WIDTH, '=');

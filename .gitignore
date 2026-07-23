@@ -2,3 +2,5 @@ build
 .vscode
 test
 .cache
+submit
+report.pdf
